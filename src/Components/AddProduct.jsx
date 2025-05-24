@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
 const AddProduct = () => {
+  const apiUrl = import.meta.env.VITE_REACT_API_URL;
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     name: "",
@@ -65,8 +66,8 @@ const AddProduct = () => {
     e.preventDefault();
 
     if (!localStorage.getItem("token")) {
-      toast.error("Please login to add products");
       navigate("/login");
+      toast.error("Please login to add products");
       return;
     }
 
@@ -92,7 +93,7 @@ const AddProduct = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/product/addproduct",
+        `${apiUrl}/api/product/addproduct`,
         formData,
         {
           headers: {

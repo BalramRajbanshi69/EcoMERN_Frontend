@@ -6,6 +6,7 @@ import { Button } from '@/Components/ui/button';
 import toast from 'react-hot-toast';
 
 const Contact = () => {
+  const apiUrl = import.meta.env.VITE_REACT_API_URL
   const [formData, setFormData] = useState({
     fullname: '',
     email: '',
@@ -81,7 +82,7 @@ const Contact = () => {
   
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contact/contactsubmit",
+        `${apiUrl}/api/contact/contactsubmit`,
         {
           method: "POST",
           headers: {

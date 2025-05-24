@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast  from "react-hot-toast";
-import register from "../../src/assets/register.jpg";
+import registerImage from "../assets/register.jpg";
 
 const SignUp = () => {
   const apiUrl = import.meta.env.VITE_REACT_API_URL;
@@ -132,7 +132,7 @@ const SignUp = () => {
               className="w-full h-full 
                                                        bg-cover bg-center bg-no-repeat relative overflow-hidden"
               style={{
-                backgroundImage: `url(${register})`,
+                backgroundImage: `url(${registerImage})`,
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>

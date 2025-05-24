@@ -6,6 +6,7 @@ import s1 from "../assets/picTwo.jpg";
 import { toast } from 'react-toastify';
 
 const SearchResult = ()=>{
+   const apiUrl = import.meta.env.VITE_REACT_API_URL;
     const params = useParams();
     const searchQuery = params.searchQuery;
     const {
@@ -85,7 +86,7 @@ const SearchResult = ()=>{
                       className="w-full h-full object-cover"
                       src={
                         item.image?.length > 0
-                          ? `http://localhost:5000/uploads/${item.image[0]}`
+                          ? `${apiUrl}/uploads/${item.image[0]}`
                           : s1
                       }
                       alt={item.name || "Product Image"}

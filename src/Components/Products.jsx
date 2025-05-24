@@ -9,6 +9,7 @@ import { FaPlus } from "react-icons/fa";
 import EditModel from "./EditModel";
 
 const Products = ({showAddButton = true}) => {
+  const apiUrl = import.meta.env.VITE_REACT_API_URL;
    const params = useParams();
    const searchQuery = params.searchQuery;
    const {
@@ -175,7 +176,7 @@ const Products = ({showAddButton = true}) => {
                         className="object-cover w-full h-full"
                         src={
                           item.image?.length > 0
-                            ? `http://localhost:5000/uploads/${item.image[0]}`
+                            ? `${apiUrl}/uploads/${item.image[0]}`
                             : s1
                         }
                         alt={item.name || "Product Image"}

@@ -4,6 +4,7 @@ import cartReducer from "./Reducer";
 import toast from "react-hot-toast";
 
 const ProductProvider = ({ children }) => {
+  const apiUrl = import.meta.env.VITE_REACT_API_URL;
   const initialProducts = [
     {
       _id: 1,
@@ -52,7 +53,7 @@ const ProductProvider = ({ children }) => {
    const getUserProducts = async () => {
      try {
        const response = await fetch(
-         "http://localhost:5000/api/product/getproducts",
+         `${apiUrl}/api/product/getproducts`,
          {
            method: "GET",
            headers: {
@@ -70,7 +71,7 @@ const ProductProvider = ({ children }) => {
 
   const allProduct = async (searchQuery = "") => {
     const response = await fetch(
-      `http://localhost:5000/api/product/getallproducts?searchQuery=${searchQuery}`,
+      `${apiUrl}/api/product/getallproducts?searchQuery=${searchQuery}`,
       {
         method: "GET",
         headers: {
@@ -90,7 +91,7 @@ const ProductProvider = ({ children }) => {
     const { name, description, price, inStock } = updateData;
     try {
       const response = await fetch(
-        `http://localhost:5000/api/product/updateproduct/${selectedProduct}`,
+        `${apiUrl}/api/product/updateproduct/${selectedProduct}`,
         {
           method: "PUT",
           headers: {
@@ -131,7 +132,7 @@ const ProductProvider = ({ children }) => {
   const deleteProduct = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/product/deleteproduct/${id}`,
+        `${apiUrl}/api/product/deleteproduct/${id}`,
         {
           method: "DELETE",
           headers: {
