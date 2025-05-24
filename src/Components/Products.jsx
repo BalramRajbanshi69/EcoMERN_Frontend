@@ -60,11 +60,9 @@ const Products = ({showAddButton = true}) => {
          e.preventDefault();
          setShowAll(true);
        };
-   
 
    const showAddNotification = () => toast.success("Added to Cart Successfully");
-   const showRemoveNotification = () =>
-     toast.success("Removed from Cart Successfully");
+   const showRemoveNotification = () =>toast.success("Removed from Cart Successfully");
 
    const handleMenu = (id) => {
      setMenuVisible((prevMenu) => ({

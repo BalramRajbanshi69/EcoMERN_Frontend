@@ -114,7 +114,7 @@ const AddProduct = () => {
 
       setTimeout(() => {
         navigate("/products");
-      }, 2000);
+      }, 1000);
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to add product");
       console.error(error);
